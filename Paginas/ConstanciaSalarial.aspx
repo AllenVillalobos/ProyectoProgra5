@@ -5,60 +5,78 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>Constancia Salarial</title>
+    <link href="/Content/style.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="page-constanciasalarial fade-in">
+
+
+
+            <!-- Bloque de campos de constancia -->
             <div id="Constancia">
-                <asp:Label runat="server">Identificacion</asp:Label>
-                <br />
-                <asp:TextBox runat="server" ReadOnly="true"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Label runat="server">Nombre Completo</asp:Label>
-                <br />
-                <asp:TextBox runat="server" ReadOnly="true"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Label runat="server">Salario</asp:Label>
-                <br />
-                <asp:TextBox runat="server" ReadOnly="true"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Label runat="server">Fecha de Contratacion</asp:Label>
-                <br />
-                <asp:TextBox runat="server" ReadOnly="true"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Label runat="server">Departamento</asp:Label>
-                <br />
-                <asp:TextBox runat="server" ReadOnly="true"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Label runat="server" >Puesto</asp:Label>
-                <br />
-                <asp:TextBox runat="server" ReadOnly="true"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Label runat="server">Constancia Salarial</asp:Label>
-                <br />
-                <asp:TextBox runat="server" Height="250px" Width="75%"></asp:TextBox>
+                <label>Identificación</label>
+                <asp:TextBox runat="server" ReadOnly="true" ID="txtIdentificacion" /><br />
+
+                <label>Nombre Completo</label>
+                <asp:TextBox runat="server" ReadOnly="true" ID="txtNombreCompleto" /><br />
+
+                <label>Salario</label>
+                <asp:TextBox runat="server" ReadOnly="true" ID="txtSalario" /><br />
+
+                <label>Fecha de Contratación</label>
+                <asp:TextBox runat="server" ReadOnly="true" ID="txtFechaContrato" /><br />
+
+                <label>Departamento</label>
+                <asp:TextBox runat="server" ReadOnly="true" ID="txtDepartamento" /><br />
+
+                <label>Puesto</label>
+                <asp:TextBox runat="server" ReadOnly="true" ID="txtPuesto" /><br />
+
+                <label>Constancia Salarial</label>
+                <asp:TextBox
+                    runat="server"
+                    ID="txtConstancia"
+                    TextMode="MultiLine"
+                    Height="250px"
+                    Width="100%" />
             </div>
-            <div id="ListaEmpleados">
-                <asp:GridView runat="server" AutoGenerateColumns="false" EmptyDataText="Empleados No Cargados">
-                    <Columns>
-                        <asp:BoundField HeaderText="ID" />
-                        <asp:BoundField HeaderText="Nombre" />
-                        <asp:BoundField HeaderText="Departamento" />
-                        <asp:BoundField HeaderText="Puesto" />
-                        <asp:BoundField HeaderText="Salario" />
-                        <asp:BoundField HeaderText="Jornada" />
-                        <asp:BoundField HeaderText="Identificacion" />
-                    </Columns>
-                </asp:GridView>
+
+            <!-- Wrapper para lista con estilo  -->
+            <div class="lista-wrapper">
+                <div id="ListaEmpleados" class="table-container">
+                    <asp:GridView
+                        runat="server"
+                        AutoGenerateColumns="false"
+                        EmptyDataText="Empleados No Cargados"
+                        ID="gvEmpleados">
+                        <Columns>
+                            <asp:BoundField DataField="EmpleadoID" HeaderText="ID" />
+                            <asp:BoundField DataField="NombreCompleto" HeaderText="Nombre" />
+                            <asp:BoundField DataField="Departamento" HeaderText="Departamento" />
+                            <asp:BoundField DataField="Puesto" HeaderText="Puesto" />
+                            <asp:BoundField
+                                DataField="Salario"
+                                HeaderText="Salario"
+                                DataFormatString="{0:C2}" />
+                            <asp:BoundField DataField="Jornada" HeaderText="Jornada" />
+                            <asp:BoundField DataField="Identificacion" HeaderText="Identificación" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
+
+            <!--  Acciones: Imprimir / Descargar PDF -->
+            <div class="constancia-actions">
+                <button type="button" class="btn-action">Descargar PDF</button>
+
             </div>
         </div>
     </form>
+
+    <!-- JS global -->
+    <script src="/Scripts/main.js" defer></script>
 </body>
 </html>
+

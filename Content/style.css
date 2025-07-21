@@ -1,0 +1,658 @@
+﻿/*====================================
+  Variables y Reset
+====================================*/
+:root {
+    --moss: #556b2f; /* verde musgo */
+    --black: #212121; /* negro suave */
+    --light-gray: #f2f2f2; /* gris claro */
+    --white: #ffffff;
+    --trans: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--light-gray);
+    color: var(--black);
+    line-height: 1.5;
+    padding-top: 60px; /* espacio para navbar fija */
+}
+
+/*====================================
+  Fade‑in effect
+====================================*/
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--trans), transform var(--trans);
+}
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/*====================================
+  Navbar fija
+====================================*/
+header.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    transition: background var(--trans);
+    z-index: 1000;
+}
+
+    header.navbar.scrolled {
+        background: var(--moss);
+    }
+
+    header.navbar .logo {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: var(--moss);
+        transition: color var(--trans);
+    }
+
+    header.navbar.scrolled .logo {
+        color: var(--white);
+    }
+
+    header.navbar nav a {
+        margin-left: 1rem;
+        text-decoration: none;
+        color: inherit;
+        font-weight: 500;
+        transition: color var(--trans);
+    }
+
+        header.navbar nav a:hover {
+            color: var(--moss);
+        }
+
+/*====================================
+  Menú Principal 
+====================================*/
+.page-menuprincipal {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 1rem;
+    background: var(--black); /* contenedor negro */
+    border: 5px solid var(--moss); /* borde musgo */
+    border-radius: 8px;
+    display: grid;
+    grid-template-areas: "clima accesos";
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+}
+
+    /* Caja de clima en gris */
+    .page-menuprincipal .clima-box {
+        grid-area: clima;
+        background: var(--light-gray);
+        border-radius: 6px;
+        padding: 1rem;
+        color: var(--black);
+        text-align: center;
+    }
+
+    /* Caja de botones en gris */
+    .page-menuprincipal .accesos-box {
+        grid-area: accesos;
+        background: var(--light-gray);
+        border-radius: 6px;
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Botones del menú: verdes sobre gris */
+    .page-menuprincipal .btn-menu {
+        flex: 1 1 180px;
+        padding: 0.8rem 1rem;
+        background: var(--moss);
+        color: var(--white);
+        font-weight: 600;
+        border: none;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+        transition: transform var(--trans), background var(--trans);
+    }
+
+        .page-menuprincipal .btn-menu:hover {
+            background: var(--black);
+            transform: translateY(-2px);
+        }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .page-menuprincipal {
+        grid-template-areas:
+            "clima"
+            "accesos";
+        grid-template-columns: 1fr;
+    }
+}
+
+/*====================================
+  Contenedor principal 
+====================================*/
+.main-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/*====================================
+  Hero / Dashboard
+====================================*/
+.hero {
+    background: linear-gradient(135deg, var(--moss), var(--black));
+    color: var(--white);
+    padding: 3rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+/*====================================
+  Tarjetas métricas
+====================================*/
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform var(--trans), box-shadow var(--trans);
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .card h4 {
+        margin-bottom: 0.5rem;
+        color: var(--moss);
+    }
+
+    .card .valor {
+        font-size: 2rem;
+        color: var(--black);
+    }
+
+/*====================================
+  Tablas globales
+====================================*/
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: var(--moss);
+    color: var(--white);
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+tr:hover {
+    background: rgba(85,107,47,0.1);
+}
+
+/*====================================
+  Formularios globales
+====================================*/
+.form-container {
+    max-width: 480px;
+    margin: 2rem auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+    .form-container h2 {
+        text-align: center;
+        color: var(--moss);
+        margin-bottom: 1.5rem;
+    }
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+    .campo label {
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        color: var(--black);
+    }
+
+    .campo input,
+    .campo select,
+    .campo textarea {
+        padding: 0.6rem 0.8rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border-color var(--trans);
+    }
+
+        .campo input:focus,
+        .campo select:focus,
+        .campo textarea:focus {
+            outline: none;
+            border-color: var(--moss);
+        }
+
+.form-container button {
+    width: 100%;
+    padding: 0.7rem;
+    background: var(--moss);
+    color: var(--white);
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform var(--trans), background var(--trans);
+}
+
+    .form-container button:hover {
+        transform: scale(1.05);
+        background: var(--black);
+    }
+
+/*====================================
+  Constancia Salarial
+====================================*/
+.page-constanciasalarial {
+    background: var(--moss);
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 900px;
+    border-radius: 8px;
+}
+
+    /* — Bloque de datos — */
+    .page-constanciasalarial #Constancia {
+        background: var(--white);
+        color: var(--black);
+        padding: 1.5rem;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+
+        .page-constanciasalarial #Constancia label {
+            display: block;
+            font-weight: 600;
+            color: var(--moss);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-constanciasalarial #Constancia input,
+        .page-constanciasalarial #Constancia textarea {
+            width: 100%;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+/* — Botones de acción — */
+.constancia-actions {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.btn-action {
+    padding: 0.6rem 1.2rem;
+    background: var(--black);
+    color: var(--white); /* texto blanco */
+    border: 2px solid var(--white); /* borde blanco */
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--trans), color var(--trans);
+}
+
+    .btn-action:hover {
+        background: var(--moss);
+        color: var(--white);
+        border-color: var(--white);
+    }
+
+/* — Wrapper para lista de empleados — */
+
+.lista-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.lista-wrapper th {
+    background: var(--moss);
+    color: var(--white);
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+.lista-wrapper td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid #333;
+    color: var(--black);
+}
+
+.lista-wrapper tr:hover {
+    background: rgba(85,107,47,0.1);
+}
+
+/*====================================
+  Liquidación
+====================================*/
+.page-liquidacion {
+    background: var(--moss);
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 900px;
+    border-radius: 8px;
+}
+
+    /* Título de sección */
+    .page-liquidacion .section-title {
+        color: var(--white);
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Formulario */
+    .page-liquidacion .form-container {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+
+    .page-liquidacion .campo {
+        margin-bottom: 1rem;
+    }
+
+        .page-liquidacion .campo label {
+            display: block;
+            font-weight: 600;
+            color: var(--moss);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-liquidacion .campo input,
+        .page-liquidacion .campo .calendar {
+            width: 100%;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: var(--light-gray);
+        }
+
+    .page-liquidacion .input-readonly {
+        background: var(--light-gray) !important;
+    }
+
+    .page-liquidacion .btn-action {
+        display: block;
+        margin: 1.5rem auto 0;
+    }
+
+    /* Lista de empleados */
+
+    .page-liquidacion .lista-wrapper .table-container {
+        background: var(--white);
+        padding: 0;
+        box-shadow: none;
+        border-radius: 4px;
+    }
+
+    .page-liquidacion .lista-wrapper th {
+        background: var(--moss);
+        color: var(--white);
+    }
+
+    .page-liquidacion .lista-wrapper td {
+        color: var(--black);
+    }
+
+    .page-liquidacion .lista-wrapper tr:hover {
+        background: rgba(85,107,47,0.1);
+    }
+/*====================================
+  Página de Login
+====================================*/
+.page-login {
+    background: var(--moss); /* fondo musgo */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.login-box {
+    background: var(--white); /* caja blanca */
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+}
+
+    .login-box h1 {
+        margin-bottom: 1.5rem;
+        color: var(--moss);
+        font-size: 1.8rem;
+    }
+
+.page-login .campo {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+    .page-login .campo label {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-weight: 600;
+        color: var(--black);
+    }
+
+.input-field {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: var(--light-gray);
+    transition: border-color var(--trans);
+}
+
+    .input-field:focus {
+        outline: none;
+        border-color: var(--moss);
+    }
+
+.btn-login {
+    width: 100%;
+    padding: 0.7rem;
+    background: var(--black);
+    color: var(--white);
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background var(--trans), transform var(--trans);
+}
+
+    .btn-login:hover {
+        background: var(--moss);
+        transform: translateY(-2px);
+    }
+/*====================================
+  Solicitud de Vacaciones
+====================================*/
+.page-solicitudvacaciones {
+    background: var(--moss);
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 900px;
+    border-radius: 8px;
+}
+
+    /* Título de formulario: Blanco */
+    .page-solicitudvacaciones .form-container h2 {
+        margin-bottom: 1rem;
+        color: var(--white);
+        font-size: 1.5rem;
+    }
+
+    /* Títulos de lista: Verde musgo */
+    .page-solicitudvacaciones .lista-wrapper .section-title {
+        margin-bottom: 1rem;
+        color: var(--moss);
+        font-size: 1.5rem;
+    }
+
+    /* Formularios */
+    .page-solicitudvacaciones .form-container {
+        background: var(--white);
+        padding: 1.5rem;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+
+    .page-solicitudvacaciones .campo {
+        margin-bottom: 1rem;
+    }
+
+        .page-solicitudvacaciones .campo label {
+            display: block;
+            font-weight: 600;
+            color: var(--moss);
+            margin-bottom: 0.5rem;
+        }
+
+    .page-solicitudvacaciones .input-field,
+    .page-solicitudvacaciones .input-readonly {
+        width: 100%;
+        padding: 0.6rem 0.8rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: var(--light-gray);
+    }
+
+    .page-solicitudvacaciones .input-readonly {
+        color: var(--black);
+    }
+
+    /* Botones */
+    .page-solicitudvacaciones .btn-action {
+        display: inline-block;
+        margin: 1rem 0;
+        padding: 0.6rem 1.2rem;
+        background: var(--black);
+        color: var(--white);
+        border: 2px solid var(--white);
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background var(--trans), transform var(--trans);
+    }
+
+        .page-solicitudvacaciones .btn-action:hover {
+            background: var(--moss);
+            transform: translateY(-2px);
+        }
+
+    /* Listas */
+    .page-solicitudvacaciones .lista-wrapper {
+        background: var(--light-gray);
+        padding: 1rem;
+        border: 3px solid var(--moss);
+        border-radius: 6px;
+        margin-bottom: 2rem;
+    }
+
+        .page-solicitudvacaciones .lista-wrapper .table-container {
+            background: var(--white);
+            padding: 0;
+            box-shadow: none;
+            border-radius: 4px;
+        }
+
+        .page-solicitudvacaciones .lista-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .page-solicitudvacaciones .lista-wrapper th {
+            background: var(--moss);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        .page-solicitudvacaciones .lista-wrapper td {
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid #333;
+            color: var(--black);
+        }
+
+        .page-solicitudvacaciones .lista-wrapper tr:hover {
+            background: rgba(85,107,47,0.1);
+        }

@@ -4,27 +4,30 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Inicio de Sesión</title>
+    <link href="/Content/style.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <div id="login">
+        <div class="page-login fade-in">
+            <div class="login-box">
                 <h1>Inicio de Sesión</h1>
-                <asp:Label runat="server">Ingresa un Nombre De Usuario</asp:Label>
-                <br />
-                <asp:TextBox runat="server"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Label runat="server">Ingresa una Contraseña</asp:Label>
-                <br />
-                <asp:TextBox runat="server"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Button Text="Ingreso" runat="server"/>
+
+                <div class="campo">
+                    <label for="txtUsuario">Usuario</label>
+                    <asp:TextBox ID="txtUsuario" runat="server" CssClass="input-field" />
+                </div>
+
+                <div class="campo">
+                    <label for="txtPassword">Contraseña</label>
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="input-field" />
+                </div>
+
+                <asp:Button ID="btnLogin" runat="server" Text="Ingresar" CssClass="btn-login" />
             </div>
         </div>
     </form>
+    <script src="/Scripts/main.js" defer></script>
 </body>
 </html>
