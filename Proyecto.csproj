@@ -77,6 +77,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\ConstanciaSalarialDAO.cs" />
+    <Compile Include="DAO\LiquidacionDAO.cs" />
+    <Compile Include="DAO\ListaRolesDAO.cs" />
+    <Compile Include="DAO\SolicitudVacacionesDAO.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Models\ConstanciaSalarial.cs" />
+    <Compile Include="Models\Contacto.cs" />
+    <Compile Include="Models\Contrato.cs" />
+    <Compile Include="Models\Departamento.cs" />
+    <Compile Include="Models\Empleado.cs" />
+    <Compile Include="Models\HistorialDepartamentos.cs" />
+    <Compile Include="Models\HistorialJornada.cs" />
+    <Compile Include="Models\HistorialPuesto.cs" />
+    <Compile Include="Models\HistorialSalarios.cs" />
+    <Compile Include="Models\Jornada.cs" />
+    <Compile Include="Models\Liquidacion.cs" />
+    <Compile Include="Models\ListaRoles.cs" />
+    <Compile Include="Models\Puesto.cs" />
+    <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\SolicitudVacaciones.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Paginas\ConstanciaSalarial.aspx.cs">
       <DependentUpon>ConstanciaSalarial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

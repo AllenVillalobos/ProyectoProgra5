@@ -20,8 +20,8 @@
             <div id="accesos" class="accesos-box">
                 <asp:Button CssClass="btn-menu" Text="Solicitud De Vacaciones" runat="server" PostBackUrl="~/Paginas/SolicitudVacaciones.aspx" />
                 <asp:Button CssClass="btn-menu" Text="Crear Constancia Salarial" runat="server" PostBackUrl="~/Paginas/ConstanciaSalarial.aspx" />
-                <asp:Button CssClass="btn-menu" Text="Crear Liquidación" runat="server" PostBackUrl="~/Paginas/Liquidacion.aspx" />
-                <asp:Button CssClass="btn-menu" Text="Ingreso" runat="server" PostBackUrl="~/Paginas/Login.aspx" />
+                <asp:Button ID="btnLiquidacion" CssClass="btn-menu" Text="Crear Liquidación" runat="server" PostBackUrl="~/Paginas/Liquidacion.aspx" />
+                <asp:Button CssClass="btn-menu" Text="Salir" runat="server" PostBackUrl="~/Paginas/Login.aspx" />
             </div>
         </div>
     </form>
