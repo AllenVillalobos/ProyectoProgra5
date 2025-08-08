@@ -16,7 +16,7 @@ namespace Proyecto.Models
         public string adicionadoPor { get; set; }
         public DateTime? fechaModificacion { get; set; }
         public string usuarioModificacion { get; set; }
-        public int? idEmpleado { get; set; }
+        public int idEmpleado { get; set; }
         public string empleadoNombre { get; set; }
     }
 }

@@ -63,7 +63,7 @@
                     <asp:TextBox ID="txtTotalLiquidacion" runat="server" CssClass="input-readonly" ReadOnly="true" />
                 </div>
 
-                <asp:Button ID="btnCalcular" runat="server" Text="Calcular Liquidación" CssClass="btn-action" />
+                <asp:Button ID="btnCalcular" runat="server" Text="Calcular Liquidación" CssClass="btn-action" OnClick="btnCalcularClick" />
 
             </div>
 

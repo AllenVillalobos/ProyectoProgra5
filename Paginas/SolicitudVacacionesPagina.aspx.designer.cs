@@ -11,7 +11,7 @@ namespace Proyecto.Paginas
 {
 
 
-    public partial class SolicitudVacaciones
+    public partial class SolicitudVacacionesPagina
     {
 
         /// <summary>
@@ -42,6 +42,24 @@ namespace Proyecto.Paginas
         protected global::System.Web.UI.WebControls.Button btnEnviarSolicitud;
 
         /// <summary>
+        /// Control lblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
+
+        /// <summary>
+        /// Control stListaEmpleados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stListaEmpleados;
+
+        /// <summary>
         /// Control gvEmpleados.
         /// </summary>
         /// <remarks>
@@ -51,6 +69,24 @@ namespace Proyecto.Paginas
         protected global::System.Web.UI.WebControls.GridView gvEmpleados;
 
         /// <summary>
+        /// Control btnCargarEmpleados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCargarEmpleados;
+
+        /// <summary>
+        /// Control stListaSolicitudes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stListaSolicitudes;
+
+        /// <summary>
         /// Control gvSolicitudes.
         /// </summary>
         /// <remarks>
@@ -58,6 +94,15 @@ namespace Proyecto.Paginas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvSolicitudes;
+
+        /// <summary>
+        /// Control stModificar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stModificar;
 
         /// <summary>
         /// Control txtSolID.

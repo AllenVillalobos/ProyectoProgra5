@@ -34,5 +34,13 @@ namespace Proyecto.Paginas
             }
 
         }
+        public void btnSalirClick(object sender, EventArgs e)
+        {
+            Session["UsuarioID"] = null;
+            Session["UsuarioEmail"] = null;
+            Session["EmpleadoID"] = null;
+            Session["nombreEmpleado"] = null;
+            Session["ListaRoles"] = null;
+        }
     }
 }

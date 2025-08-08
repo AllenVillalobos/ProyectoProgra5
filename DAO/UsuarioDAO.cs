@@ -31,7 +31,7 @@ namespace Proyecto.DAO
                     conexion.Open();
                     try
                     {
-                        using (var lector = comando.ExecuteReader())
+                        using (SqlDataReader lector = comando.ExecuteReader())
                         {
                             while (lector.Read())
                             {
