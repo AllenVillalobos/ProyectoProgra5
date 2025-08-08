@@ -49,7 +49,7 @@ namespace Proyecto.Paginas
         }
         protected async void btnCargarEmpleadosClick(object sender, EventArgs e)
         {
-            await CargarEmpleado();
+            await CargarEmpleados();
         }
 
         public void gvEmpleadosSelectedIndexChanged(object sender, EventArgs e)
@@ -154,7 +154,7 @@ namespace Proyecto.Paginas
             txtSolRes.Text = "";
         }
 
-        public async Task CargarEmpleado()
+        public async Task CargarEmpleados()
         {
             List<Empleado> empleados = new List<Empleado>();
             String URLbase = ConfigurationManager.AppSettings["URLbase"];

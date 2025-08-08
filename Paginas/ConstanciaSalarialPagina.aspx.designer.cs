@@ -11,7 +11,7 @@ namespace Proyecto.Paginas
 {
 
 
-    public partial class ConstanciaSalarial
+    public partial class ConstanciaSalarialPagina
     {
 
         /// <summary>
@@ -22,6 +22,33 @@ namespace Proyecto.Paginas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// Control stListaEmpleados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stListaEmpleados;
+
+        /// <summary>
+        /// Control gvEmpleados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvEmpleados;
+
+        /// <summary>
+        /// Control btnCargarEmpleados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCargarEmpleados;
 
         /// <summary>
         /// Control txtIdentificacion.
@@ -87,12 +114,21 @@ namespace Proyecto.Paginas
         protected global::System.Web.UI.WebControls.TextBox txtConstancia;
 
         /// <summary>
-        /// Control gvEmpleados.
+        /// Control btnGenerarConstancia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEmpleados;
+        protected global::System.Web.UI.WebControls.Button btnGenerarConstancia;
+
+        /// <summary>
+        /// Control btnDescargar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDescargar;
     }
 }
