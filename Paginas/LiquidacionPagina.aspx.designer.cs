@@ -11,7 +11,7 @@ namespace Proyecto.Paginas
 {
 
 
-    public partial class Liquidacion
+    public partial class LiquidacionPagina
     {
 
         /// <summary>
@@ -22,6 +22,33 @@ namespace Proyecto.Paginas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// Control stListaEmpleados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stListaEmpleados;
+
+        /// <summary>
+        /// Control gvEmpleados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvEmpleados;
+
+        /// <summary>
+        /// Control btnCargarEmpleados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCargarEmpleados;
 
         /// <summary>
         /// Control calFecha.
@@ -105,22 +132,22 @@ namespace Proyecto.Paginas
         protected global::System.Web.UI.WebControls.TextBox txtResVacaciones;
 
         /// <summary>
-        /// Control txtAnos.
+        /// Control txtAnnios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnos;
+        protected global::System.Web.UI.WebControls.TextBox txtAnnios;
 
         /// <summary>
-        /// Control txtResAnos.
+        /// Control txtResAnnios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtResAnos;
+        protected global::System.Web.UI.WebControls.TextBox txtResAnnios;
 
         /// <summary>
         /// Control txtSalarioDiario.
@@ -141,6 +168,24 @@ namespace Proyecto.Paginas
         protected global::System.Web.UI.WebControls.TextBox txtResSalarioDiario;
 
         /// <summary>
+        /// Control txtSalarioMensual.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSalarioMensual;
+
+        /// <summary>
+        /// Control txtResSalarioMensual.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtResSalarioMensual;
+
+        /// <summary>
         /// Control txtTotalLiquidacion.
         /// </summary>
         /// <remarks>
@@ -157,14 +202,5 @@ namespace Proyecto.Paginas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCalcular;
-
-        /// <summary>
-        /// Control gvEmpleados.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEmpleados;
     }
 }

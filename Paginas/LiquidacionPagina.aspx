@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Liquidacion.aspx.cs" Inherits="Proyecto.Paginas.Liquidacion" %>
+﻿<%@ Page Language="C#" Async="true" AutoEventWireup="true" CodeBehind="LiquidacionPagina.aspx.cs" Inherits="Proyecto.Paginas.LiquidacionPagina" %>
 
 <!DOCTYPE html>
 
@@ -14,6 +14,27 @@
 
             <!-- 1) Encabezado -->
             <h2 class="section-title">Calcular Liquidación</h2>
+
+            <section class="lista-wrapper" runat="server" id="stListaEmpleados">
+                <h2 class="section-title">Empleados</h2>
+                <div class="table-container">
+                    <asp:GridView ID="gvEmpleados" runat="server" AutoGenerateColumns="false"
+                        EmptyDataText="Empleados No Cargados" DataKeyNames="idEmpleado"
+                        OnSelectedIndexChanged="gvEmpleadosSelectedIndexChanged"
+                        AutoGenerateSelectButton="True">
+                        <Columns>
+                            <asp:BoundField DataField="idEmpleado" HeaderText="ID" />
+                            <asp:BoundField DataField="nombreCompleto" HeaderText="Nombre" />
+                            <asp:BoundField DataField="nombreDepartamento" HeaderText="Departamento" />
+                            <asp:BoundField DataField="nombrePuesto" HeaderText="Puesto" />
+                            <asp:BoundField DataField="salarioBruto" HeaderText="Salario" DataFormatString="{0:C2}" />
+                            <asp:BoundField DataField="nombreJornada" HeaderText="Jornada" />
+                            <asp:BoundField DataField="identificacion" HeaderText="Identificación" />
+                        </Columns>
+                    </asp:GridView>
+                    <asp:Button ID="btnCargarEmpleados" runat="server" Text="CargarEmpleados" CssClass="btn-action" OnClick="btnCargarEmpleadosClick" />
+                </div>
+            </section>
 
             <!-- 2) Formulario -->
             <div class="form-container">
@@ -48,14 +69,19 @@
 
                 <div class="campo">
                     <label>Años Trabajados</label>
-                    <asp:TextBox ID="txtAnos" runat="server" CssClass="input-label" Text="Años Trabajados" />
-                    <asp:TextBox ID="txtResAnos" runat="server" CssClass="input-readonly" ReadOnly="true" />
+                    <asp:TextBox ID="txtAnnios" runat="server" CssClass="input-label" Text="Años Trabajados" />
+                    <asp:TextBox ID="txtResAnnios" runat="server" CssClass="input-readonly" ReadOnly="true" />
                 </div>
 
                 <div class="campo">
                     <label>Salario Diario</label>
                     <asp:TextBox ID="txtSalarioDiario" runat="server" CssClass="input-label" Text="Salario Diario" />
                     <asp:TextBox ID="txtResSalarioDiario" runat="server" CssClass="input-readonly" ReadOnly="true" />
+                </div>
+                <div class="campo">
+                    <label>Salario Mensual</label>
+                    <asp:TextBox ID="txtSalarioMensual" runat="server" CssClass="input-label" Text="Salario Mensual" />
+                    <asp:TextBox ID="txtResSalarioMensual" runat="server" CssClass="input-readonly" ReadOnly="true" />
                 </div>
 
                 <div class="campo">
@@ -66,24 +92,6 @@
                 <asp:Button ID="btnCalcular" runat="server" Text="Calcular Liquidación" CssClass="btn-action" OnClick="btnCalcularClick" />
 
             </div>
-
-            <!-- 3) Lista de Empleados -->
-            <div class="lista-wrapper">
-                <div id="ListaEmpleados" class="table-container">
-                    <asp:GridView ID="gvEmpleados" runat="server" AutoGenerateColumns="false" EmptyDataText="Empleados No Cargados">
-                        <Columns>
-                            <asp:BoundField DataField="EmpleadoID" HeaderText="ID" />
-                            <asp:BoundField DataField="NombreCompleto" HeaderText="Nombre" />
-                            <asp:BoundField DataField="Departamento" HeaderText="Departamento" />
-                            <asp:BoundField DataField="Puesto" HeaderText="Puesto" />
-                            <asp:BoundField DataField="Salario" HeaderText="Salario" DataFormatString="{0:C2}" />
-                            <asp:BoundField DataField="Jornada" HeaderText="Jornada" />
-                            <asp:BoundField DataField="Identificacion" HeaderText="Identificación" />
-                        </Columns>
-                    </asp:GridView>
-                </div>
-            </div>
-
         </div>
     </form>
 

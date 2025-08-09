@@ -11,7 +11,7 @@ namespace Proyecto.Paginas
 {
 
 
-    public partial class MenuPrincipal
+    public partial class GestionEmpleados
     {
 
         /// <summary>
@@ -24,30 +24,21 @@ namespace Proyecto.Paginas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control btnLiquidacion.
+        /// Control stListaEmpleados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLiquidacion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stListaEmpleados;
 
         /// <summary>
-        /// Control btnEmpleados.
+        /// Control gvEmpleados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEmpleados;
-
-        /// <summary>
-        /// Control btnSalir.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSalir;
+        protected global::System.Web.UI.WebControls.GridView gvEmpleados;
     }
 }

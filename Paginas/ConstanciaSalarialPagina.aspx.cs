@@ -56,7 +56,9 @@ namespace Proyecto.Paginas
                 {
                     txtIdentificacion.Text = constanciaSalarial.identificacion.ToString();
                     txtNombreCompleto.Text = constanciaSalarial.nombreCompleto.ToString();
-                    txtSalario.Text = constanciaSalarial.salarioBruto.ToString();
+                    int salario = Convert.ToInt32(constanciaSalarial.salarioBruto);
+                    string salarioFormateado = salario.ToString("N0");
+                    txtSalario.Text = salarioFormateado;
                     DateTime fechaC = Convert.ToDateTime(constanciaSalarial.fechaContratacion);
                     string fechaContratacion = fechaC.ToString("dd/MM/yyyy");
                     txtFechaContrato.Text = fechaContratacion;
@@ -66,7 +68,7 @@ namespace Proyecto.Paginas
                         " con identificación " + constanciaSalarial.identificacion +
                         " quien ocupa el puesto de " + constanciaSalarial.puesto + " en el departamento de " +
                         constanciaSalarial.departamento + ". Su salario bruto es de " +
-                        +constanciaSalarial.salarioBruto + " y fue contratado el " + fechaContratacion + ", " +
+                        salarioFormateado + " y fue contratado el " + fechaContratacion + ", " +
                         "con tipo de Contrato " + constanciaSalarial.tipoContrato + ".";
                     txtConstancia.Text = constancia;
                 }
@@ -80,7 +82,9 @@ namespace Proyecto.Paginas
                 {
                     txtIdentificacion.Text = constanciaSalarial.identificacion.ToString();
                     txtNombreCompleto.Text = constanciaSalarial.nombreCompleto.ToString();
-                    txtSalario.Text = constanciaSalarial.salarioBruto.ToString();
+                    int salario = Convert.ToInt32(constanciaSalarial.salarioBruto);
+                    string salarioFormateado = salario.ToString("N0");
+                    txtSalario.Text = salarioFormateado;
                     DateTime fechaC = Convert.ToDateTime(constanciaSalarial.fechaContratacion);
                     string fechaContratacion = fechaC.ToString("dd/MM/yyyy");
                     txtFechaContrato.Text = fechaContratacion;
@@ -90,7 +94,7 @@ namespace Proyecto.Paginas
                         " con identificación " + constanciaSalarial.identificacion +
                         " quien ocupa el puesto de " + constanciaSalarial.puesto + " en el departamento de " +
                         constanciaSalarial.departamento + ". Su salario bruto es de " +
-                        +constanciaSalarial.salarioBruto + " y fue contratado el " + fechaContratacion + ", " +
+                        salarioFormateado + " y fue contratado el " + fechaContratacion + ", " +
                         "con tipo de Contrato " + constanciaSalarial.tipoContrato + ".";
                     txtConstancia.Text = constancia;
                 }
@@ -115,11 +119,13 @@ namespace Proyecto.Paginas
                 DateTime fechaC = Convert.ToDateTime(constanciaSalarial.fechaContratacion);
                 string fechaContratacion = fechaC.ToString("dd/MM/yyyy");
                 txtFechaContrato.Text = fechaContratacion;
+                int salario = Convert.ToInt32(constanciaSalarial.salarioBruto);
+                string salarioFormateado = salario.ToString("N0");
                 constancia = "Constancia Salarial para " + constanciaSalarial.nombreCompleto +
                     " con identificación " + constanciaSalarial.identificacion +
                     " quien ocupa el puesto de " + constanciaSalarial.puesto + " en el departamento de " +
                     constanciaSalarial.departamento + ". Su salario bruto es de " +
-                    +constanciaSalarial.salarioBruto + " y fue contratado el " + fechaContratacion + ", " +
+                    salarioFormateado+ " y fue contratado el " + fechaContratacion + ", " +
                     "con tipo de Contrato " + constanciaSalarial.tipoContrato + ".";
             }
             string dirreccion = Server.MapPath("~/Archivos/ConstanciaSalarial.pdf");

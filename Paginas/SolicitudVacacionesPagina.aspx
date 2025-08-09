@@ -97,6 +97,8 @@
                 <div class="campo">
                     <label for="txtSolRes">Resolución</label>
                     <asp:TextBox ID="txtSolRes" runat="server" CssClass="input-field" />
+                    <asp:DropDownList runat="server" ID="ddlResolucion">
+                    </asp:DropDownList>
                 </div>
                 <asp:Button ID="btnModificarSolicitud" runat="server" Text="Enviar Cambios" CssClass="btn-action" OnClick="btnModificarSolicitudClick" />
             </section>

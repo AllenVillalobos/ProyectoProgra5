@@ -193,7 +193,8 @@
   <ItemGroup>
     <Content Include="Content\style.css" />
     <Content Include="Paginas\ConstanciaSalarialPagina.aspx" />
-    <Content Include="Paginas\Liquidacion.aspx" />
+    <Content Include="Paginas\GestionEmpleados.aspx" />
+    <Content Include="Paginas\LiquidacionPagina.aspx" />
     <Content Include="Paginas\Login.aspx" />
     <Content Include="Paginas\MenuPrincipal.aspx" />
     <Content Include="Paginas\SolicitudVacacionesPagina.aspx" />
@@ -229,12 +230,19 @@
     <Compile Include="Paginas\ConstanciaSalarialPagina.aspx.designer.cs">
       <DependentUpon>ConstanciaSalarialPagina.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Paginas\Liquidacion.aspx.cs">
-      <DependentUpon>Liquidacion.aspx</DependentUpon>
+    <Compile Include="Paginas\GestionEmpleados.aspx.cs">
+      <DependentUpon>GestionEmpleados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Paginas\Liquidacion.aspx.designer.cs">
-      <DependentUpon>Liquidacion.aspx</DependentUpon>
+    <Compile Include="Paginas\GestionEmpleados.aspx.designer.cs">
+      <DependentUpon>GestionEmpleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\LiquidacionPagina.aspx.cs">
+      <DependentUpon>LiquidacionPagina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\LiquidacionPagina.aspx.designer.cs">
+      <DependentUpon>LiquidacionPagina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

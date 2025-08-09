@@ -26,10 +26,12 @@ namespace Proyecto.Paginas
                 if (listaRoles.Any(r =>r.nombreRol.Equals("Administrador", StringComparison.OrdinalIgnoreCase)))
                 {
                     btnLiquidacion.Visible = true;
+                    btnEmpleados.Visible = true;
                 }
                 else
                 {
                     btnLiquidacion.Visible = false;
+                    btnEmpleados.Visible = false;
                 }
             }
 

@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
@@ -36,6 +37,8 @@ namespace Proyecto.Paginas
                     stListaSolicitudes.Visible = true;
                     stModificar.Visible = true;
                     CargarSolicitudes();
+                    ddlResolucion.Items.Add(new ListItem("Aprobado", "Aprobado"));
+                    ddlResolucion.Items.Add(new ListItem("Rechazado", "Rechazado"));
                 }
                 else
                 {
@@ -77,11 +80,13 @@ namespace Proyecto.Paginas
                 if (Session["EmpleadoIDSeleccionado"] == null)
                 {
                     lblMensaje.Text = "Debes seleccionar un empleado.";
-                }else if (String.IsNullOrEmpty(txtDetalle.Text))
+                }
+                else if (String.IsNullOrEmpty(txtDetalle.Text))
                 {
                     lblMensaje.Text = "Debes rellenar el campo de Detalle para enviar la solicitud";
                 }
-                else {
+                else
+                {
                     solicitudVacaciones = new SolicitudVacaciones()
                     {
                         detalle = txtDetalle.Text,
@@ -127,31 +132,47 @@ namespace Proyecto.Paginas
                 txtSolID.Text = solicitudId.ToString();
                 txtSolDet.Text = Convert.ToString(gvSolicitudes.DataKeys[row.RowIndex].Values["detalle"]);
                 txtSolEstado.Text = Convert.ToString(gvSolicitudes.DataKeys[row.RowIndex].Values["estado"]);
-                DateTime fechaRevision =Convert.ToDateTime(gvSolicitudes.DataKeys[row.RowIndex].Values["fechaAdicion"]);
+                DateTime fechaRevision = Convert.ToDateTime(gvSolicitudes.DataKeys[row.RowIndex].Values["fechaAdicion"]);
                 string fechaRevisionStr = fechaRevision.ToString("dd/MM/yyyy");
                 txtSolFecha.Text = fechaRevisionStr;
                 txtSolEmpleado.Text = Convert.ToString(gvSolicitudes.DataKeys[row.RowIndex].Values["empleadoNombre"]);
                 txtSolRevisor.Text = Convert.ToString(Session["nombreEmpleado"]);
             }
         }
-        public void btnModificarSolicitudClick(object sender, EventArgs e)
+        public async void btnModificarSolicitudClick(object sender, EventArgs e)
         {
-            SolicitudVacaciones solicitudVacaciones = new SolicitudVacaciones()
+            String URLbase = ConfigurationManager.AppSettings["URLbase"];
+            using (HttpClient cliente = new HttpClient())
             {
-                idSolicitudVacaciones = Convert.ToInt32(txtSolID.Text),
-                detalle = txtSolDet.Text,
-                estado = txtSolRes.Text,
-                revisadoPor = txtSolRevisor.Text,
-            };
-            solicitudVacacionesDAO.ModificarSolicitudVacaciones(solicitudVacaciones);
-            CargarSolicitudes();
-            txtSolID.Text = "";
-            txtSolDet.Text = "";
-            txtSolEstado.Text = "";
-            txtSolFecha.Text = "";
-            txtSolEmpleado.Text = "";
-            txtSolRevisor.Text = "";
-            txtSolRes.Text = "";
+                cliente.BaseAddress = new Uri(URLbase);
+                cliente.DefaultRequestHeaders.Accept.Clear();
+                cliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                try
+                {
+                    SolicitudVacaciones solicitudVacaciones = new SolicitudVacaciones()
+                    {
+                        idSolicitudVacaciones = Convert.ToInt32(txtSolID.Text),
+                        detalle = txtSolDet.Text,
+                        estado = ddlResolucion.SelectedValue.ToString(),
+                        revisadoPor = txtSolRevisor.Text
+                    };
+                    var json = JsonConvert.SerializeObject(solicitudVacaciones);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    HttpResponseMessage repuesta = await cliente.PutAsync($"/api/SolicitudVacaciones/{solicitudVacaciones.idSolicitudVacaciones}", content);
+                    if (repuesta.IsSuccessStatusCode)
+                    {
+                        CargarSolicitudes();
+                    }
+                    else
+                    {
+                        lblMensaje.Text = "Error al modificar la solicitud de vacaciones.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al consumir el servicio: " + ex.Message, ex);
+                }
+            }
         }
 
         public async Task CargarEmpleados()
