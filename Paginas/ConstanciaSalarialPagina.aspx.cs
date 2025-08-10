@@ -68,8 +68,7 @@ namespace Proyecto.Paginas
                         " con identificación " + constanciaSalarial.identificacion +
                         " quien ocupa el puesto de " + constanciaSalarial.puesto + " en el departamento de " +
                         constanciaSalarial.departamento + ". Su salario bruto es de " +
-                        salarioFormateado + " y fue contratado el " + fechaContratacion + ", " +
-                        "con tipo de Contrato " + constanciaSalarial.tipoContrato + ".";
+                        salarioFormateado + " y fue contratado el " + fechaContratacion +".";
                     txtConstancia.Text = constancia;
                 }
 
@@ -94,8 +93,7 @@ namespace Proyecto.Paginas
                         " con identificación " + constanciaSalarial.identificacion +
                         " quien ocupa el puesto de " + constanciaSalarial.puesto + " en el departamento de " +
                         constanciaSalarial.departamento + ". Su salario bruto es de " +
-                        salarioFormateado + " y fue contratado el " + fechaContratacion + ", " +
-                        "con tipo de Contrato " + constanciaSalarial.tipoContrato + ".";
+                        salarioFormateado + " y fue contratado el " + fechaContratacion +  ".";
                     txtConstancia.Text = constancia;
                 }
             }
@@ -125,8 +123,7 @@ namespace Proyecto.Paginas
                     " con identificación " + constanciaSalarial.identificacion +
                     " quien ocupa el puesto de " + constanciaSalarial.puesto + " en el departamento de " +
                     constanciaSalarial.departamento + ". Su salario bruto es de " +
-                    salarioFormateado+ " y fue contratado el " + fechaContratacion + ", " +
-                    "con tipo de Contrato " + constanciaSalarial.tipoContrato + ".";
+                    salarioFormateado+ " y fue contratado el " + fechaContratacion +".";
             }
             string dirreccion = Server.MapPath("~/Archivos/ConstanciaSalarial.pdf");
             using (var witter = new PdfWriter(dirreccion))

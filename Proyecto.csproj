@@ -203,8 +203,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\ConstanciaSalarialDAO.cs" />
+    <Compile Include="DAO\DepartamentoDAO.cs" />
+    <Compile Include="DAO\EmpleadoDAO.cs" />
+    <Compile Include="DAO\JornadaDAO.cs" />
     <Compile Include="DAO\LiquidacionDAO.cs" />
     <Compile Include="DAO\ListaRolesDAO.cs" />
+    <Compile Include="DAO\PuestoDAO.cs" />
     <Compile Include="DAO\SolicitudVacacionesDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Models\ConstanciaSalarial.cs" />
