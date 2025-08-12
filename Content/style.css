@@ -24,7 +24,7 @@ body {
 }
 
 /*====================================
-  Fade‑in effect
+  Fade-in effect
 ====================================*/
 .fade-in {
     opacity: 0;
@@ -98,7 +98,6 @@ header.navbar {
     grid-template-columns: 1fr 2fr;
     gap: 1.5rem;
 }
-
     /* Caja de clima en gris */
     .page-menuprincipal .clima-box {
         grid-area: clima;
@@ -108,7 +107,6 @@ header.navbar {
         color: var(--black);
         text-align: center;
     }
-
     /* Caja de botones en gris */
     .page-menuprincipal .accesos-box {
         grid-area: accesos;
@@ -121,7 +119,6 @@ header.navbar {
         align-items: center;
         justify-content: center;
     }
-
     /* Botones del menú: verdes sobre gris */
     .page-menuprincipal .btn-menu {
         flex: 1 1 180px;
@@ -319,7 +316,6 @@ tr:hover {
     max-width: 900px;
     border-radius: 8px;
 }
-
     /* — Bloque de datos — */
     .page-constanciasalarial #Constancia {
         background: var(--white);
@@ -372,7 +368,6 @@ tr:hover {
     }
 
 /* — Wrapper para lista de empleados — */
-
 .lista-wrapper table {
     width: 100%;
     border-collapse: collapse;
@@ -405,14 +400,12 @@ tr:hover {
     max-width: 900px;
     border-radius: 8px;
 }
-
     /* Título de sección */
     .page-liquidacion .section-title {
         color: var(--white);
         text-align: center;
         margin-bottom: 1.5rem;
     }
-
     /* Formulario */
     .page-liquidacion .form-container {
         background: var(--white);
@@ -450,9 +443,7 @@ tr:hover {
         display: block;
         margin: 1.5rem auto 0;
     }
-
     /* Lista de empleados */
-
     .page-liquidacion .lista-wrapper .table-container {
         background: var(--white);
         padding: 0;
@@ -472,6 +463,7 @@ tr:hover {
     .page-liquidacion .lista-wrapper tr:hover {
         background: rgba(85,107,47,0.1);
     }
+
 /*====================================
   Página de Login
 ====================================*/
@@ -542,6 +534,7 @@ tr:hover {
         background: var(--moss);
         transform: translateY(-2px);
     }
+
 /*====================================
   Solicitud de Vacaciones
 ====================================*/
@@ -552,21 +545,18 @@ tr:hover {
     max-width: 900px;
     border-radius: 8px;
 }
-
     /* Título de formulario: Blanco */
     .page-solicitudvacaciones .form-container h2 {
         margin-bottom: 1rem;
         color: var(--white);
         font-size: 1.5rem;
     }
-
     /* Títulos de lista: Verde musgo */
     .page-solicitudvacaciones .lista-wrapper .section-title {
         margin-bottom: 1rem;
         color: var(--moss);
         font-size: 1.5rem;
     }
-
     /* Formularios */
     .page-solicitudvacaciones .form-container {
         background: var(--white);
@@ -599,7 +589,6 @@ tr:hover {
     .page-solicitudvacaciones .input-readonly {
         color: var(--black);
     }
-
     /* Botones */
     .page-solicitudvacaciones .btn-action {
         display: inline-block;
@@ -618,7 +607,6 @@ tr:hover {
             background: var(--moss);
             transform: translateY(-2px);
         }
-
     /* Listas */
     .page-solicitudvacaciones .lista-wrapper {
         background: var(--light-gray);
@@ -656,3 +644,199 @@ tr:hover {
         .page-solicitudvacaciones .lista-wrapper tr:hover {
             background: rgba(85,107,47,0.1);
         }
+
+/*=============
+  Botón "Atrás" 
+===============*/
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    padding: .6rem 1rem;
+    background: var(--white);
+    color: var(--moss);
+    border: 2px solid var(--moss);
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform var(--trans), background var(--trans), color var(--trans), box-shadow var(--trans);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+    .btn-back::before {
+        content: "←";
+        font-size: 1rem;
+        line-height: 1;
+        transition: transform var(--trans);
+    }
+
+    .btn-back:hover {
+        transform: translateX(-3px);
+        background: var(--black);
+        color: var(--white);
+    }
+
+        .btn-back:hover::before {
+            transform: translateX(-2px);
+        }
+
+    .btn-back:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(85,107,47,.25);
+    }
+
+/* Posición fija sin tapar la navbar  */
+.back-fixed {
+    position: fixed;
+    top: 72px;
+    left: 12px;
+    z-index: 1001;
+}
+
+/* Opcional: animación de entrada para el botón */
+.btn-back.fade-in {
+    opacity: 0;
+    transform: translateY(-8px);
+}
+
+    .btn-back.fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+:root {
+    --radius: 8px;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,.08);
+    --shadow-md: 0 8px 20px rgba(0,0,0,.12);
+    --container: 1200px;
+}
+
+/* Tipografía y contenedor */
+.main-container {
+    max-width: var(--container)
+}
+
+h1, h2, h3 {
+    letter-spacing: .2px
+}
+
+.section-title {
+    font-weight: 700
+}
+
+
+:where(a,button,[type="button"],[type="submit"],input,select,textarea,.btn-action,.btn-back):focus-visible {
+    outline: 3px solid rgba(85,107,47,.35); /* halo musgo */
+    outline-offset: 2px;
+}
+
+/* Navbar: mejor contraste cuando .scrolled = fondo musgo */
+header.navbar.scrolled nav a {
+    color: var(--white);
+}
+
+    header.navbar.scrolled nav a:hover {
+        color: var(--light-gray);
+    }
+
+/* Botones de acción: micro-interacciones y estados */
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    border-radius: 6px;
+    box-shadow: var(--shadow-sm);
+    transition: background var(--trans), transform var(--trans), box-shadow var(--trans), border-color var(--trans);
+}
+
+    .btn-action:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
+    }
+
+    .btn-action:active {
+        transform: translateY(0);
+    }
+
+    .btn-action:disabled,
+    .btn-action[disabled] {
+        opacity: .6;
+        cursor: not-allowed;
+    }
+
+/* Inputs: placeholders y readonly un poco más sutiles */
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #9aa0a6
+}
+
+.input-readonly {
+    background: #eee !important;
+}
+
+/* Calendario visualmente alineado con inputs */
+.calendar {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: var(--white);
+}
+
+/* Tablas: refinamiento suave */
+.table-container {
+    padding: 0
+}
+
+table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    font-weight: 700
+}
+
+td, th {
+    vertical-align: middle
+}
+
+tbody tr:hover {
+    background: rgba(85,107,47,0.08)
+}
+/* hover ligeramente más sutil */
+
+/* Botón Atrás: sombra y clic más natural */
+.btn-back {
+    box-shadow: var(--shadow-sm);
+}
+
+    .btn-back:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateX(-3px);
+    }
+
+    .btn-back:active {
+        transform: translateX(-1px)
+    }
+
+/* Responsive fino para el botón flotante (evita solaparse) */
+@media (max-width: 600px) {
+    .back-fixed {
+        top: 68px;
+        left: 10px;
+    }
+}
+
+/* Respeto a usuarios con reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .fade-in, .btn-back.fade-in {
+        opacity: 1;
+        transform: none;
+    }
+}

@@ -10,6 +10,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <!-- Botón Atrás  -->
+        <div class="back-fixed">
+            <a href="MenuPrincipal.aspx"
+                class="btn-back fade-in"
+                onclick="return goBack('MenuPrincipal.aspx')">Atrás
+    </a>
+        </div>
         <div class="page-solicitudvacaciones fade-in">
 
             <!-- 1) Formulario de nueva solicitud -->
@@ -20,16 +27,16 @@
                     <asp:TextBox ID="txtDetalle" runat="server" TextMode="MultiLine" CssClass="input-field" Height="150px" />
                 </div>
                 <asp:Button ID="btnEnviarSolicitud" runat="server" Text="Enviar Solicitud" CssClass="btn-action" OnClick="btnEnviarSolicitudClick" />
-            <asp:Label runat="server" ID="lblMensaje"></asp:Label>
+                <asp:Label runat="server" ID="lblMensaje"></asp:Label>
             </section>
 
             <!-- 2) Lista de empleados -->
             <section class="lista-wrapper" runat="server" id="stListaEmpleados">
                 <h2 class="section-title">Empleados</h2>
                 <div class="table-container">
-                    <asp:GridView ID="gvEmpleados" runat="server" AutoGenerateColumns="false" 
-                        EmptyDataText="Empleados No Cargados" DataKeyNames="idEmpleado" 
-                         OnSelectedIndexChanged="gvEmpleadosSelectedIndexChanged"
+                    <asp:GridView ID="gvEmpleados" runat="server" AutoGenerateColumns="false"
+                        EmptyDataText="Empleados No Cargados" DataKeyNames="idEmpleado"
+                        OnSelectedIndexChanged="gvEmpleadosSelectedIndexChanged"
                         AutoGenerateSelectButton="True">
                         <Columns>
                             <asp:BoundField DataField="idEmpleado" HeaderText="ID" />
@@ -49,10 +56,10 @@
             <section class="lista-wrapper" runat="server" id="stListaSolicitudes">
                 <h2 class="section-title">Solicitudes Existentes</h2>
                 <div class="table-container">
-                    <asp:GridView ID="gvSolicitudes" runat="server" AutoGenerateColumns="false" 
-                        EmptyDataText="No hay Solicitudes Disponibles" 
+                    <asp:GridView ID="gvSolicitudes" runat="server" AutoGenerateColumns="false"
+                        EmptyDataText="No hay Solicitudes Disponibles"
                         DataKeyNames="idSolicitudVacaciones,detalle,estado,fechaAdicion,empleadoNombre,revisadoPor,fechaRevision"
-                        OnSelectedIndexChanged="gvSolicitudesSelectedIndexChanged" 
+                        OnSelectedIndexChanged="gvSolicitudesSelectedIndexChanged"
                         AutoGenerateSelectButton="true">
                         <Columns>
                             <asp:BoundField DataField="idSolicitudVacaciones" HeaderText="Nº Solicitud" />
@@ -104,6 +111,22 @@
             </section>
         </div>
     </form>
+    <script src="/Scripts/main.js" defer></script>
+    <script>
+        function goBack(fallback) {
+            var url = fallback || 'MenuPrincipal.aspx';
+            try {
+                if (document.referrer && new URL(document.referrer, location.href).host === location.host) {
+                    history.back(); return false;
+                }
+            } catch (e) { }
+            location.href = url; return false;
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var b = document.querySelector('.btn-back.fade-in');
+            if (b) { requestAnimationFrame(function () { b.classList.add('visible'); }); }
+        });
+</script>
     <script src="/Scripts/main.js" defer></script>
 </body>
 </html>

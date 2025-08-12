@@ -10,6 +10,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <!-- Botón Atrás  -->
+        <div class="back-fixed">
+            <a href="MenuPrincipal.aspx"
+                class="btn-back fade-in"
+                onclick="return goBack('MenuPrincipal.aspx')">Atrás
+    </a>
+        </div>
         <div class="page-constanciasalarial fade-in">
 
             <section class="lista-wrapper" runat="server" id="stListaEmpleados">
@@ -60,17 +67,33 @@
                     Height="250px"
                     Width="100%" />
             </div>
-            </div>
+        </div>
 
-            <!--  Acciones: Imprimir / Descargar PDF -->
-            <div class="constancia-actions">
-                <asp:Button runat="server" ID="btnGenerarConstancia" Text="Previsualisacion de la Constancia" CssClass="btn-action" OnClick="btnGenerarConstanciaClick" />
-                <asp:Button runat="server" ID="btnDescargar" Text="Descargar PDF" CssClass="btn-action" OnClick="btnDescargarClick" />
-            </div>
+        <!--  Acciones: Imprimir / Descargar PDF -->
+        <div class="constancia-actions">
+            <asp:Button runat="server" ID="btnGenerarConstancia" Text="Previsualisacion de la Constancia" CssClass="btn-action" OnClick="btnGenerarConstanciaClick" />
+            <asp:Button runat="server" ID="btnDescargar" Text="Descargar PDF" CssClass="btn-action" OnClick="btnDescargarClick" />
+        </div>
         </div>
     </form>
 
     <!-- JS global -->
+    <script src="/Scripts/main.js" defer></script>
+    <script>
+        function goBack(fallback) {
+            var url = fallback || 'MenuPrincipal.aspx';
+            try {
+                if (document.referrer && new URL(document.referrer, location.href).host === location.host) {
+                    history.back(); return false;
+                }
+            } catch (e) { }
+            location.href = url; return false;
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var b = document.querySelector('.btn-back.fade-in');
+            if (b) { requestAnimationFrame(function () { b.classList.add('visible'); }); }
+        });
+</script>
     <script src="/Scripts/main.js" defer></script>
 </body>
 </html>

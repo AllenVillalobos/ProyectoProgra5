@@ -9,6 +9,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <!-- Botón Atrás  -->
+        <div class="back-fixed">
+            <a href="MenuPrincipal.aspx"
+                class="btn-back fade-in"
+                onclick="return goBack('MenuPrincipal.aspx')">Atrás
+    </a>
+        </div>
         <div>
             <h1>Crear Empleados</h1>
             <div class="form-container">
@@ -90,5 +97,21 @@
         </div>
         <asp:Label ID="lblMensaje" runat="server"></asp:Label>
     </form>
+    <script>
+        function goBack(fallback) {
+            var url = fallback || 'MenuPrincipal.aspx';
+            try {
+                if (document.referrer && new URL(document.referrer, location.href).host === location.host) {
+                    history.back(); return false;
+                }
+            } catch (e) { }
+            location.href = url; return false;
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            var b = document.querySelector('.btn-back.fade-in');
+            if (b) { requestAnimationFrame(function () { b.classList.add('visible'); }); }
+        });
+</script>
+    <script src="/Scripts/main.js" defer></script>
 </body>
 </html>

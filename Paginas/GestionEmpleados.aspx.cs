@@ -43,6 +43,7 @@ namespace Proyecto.Paginas
                 txtApellidoE2.Text = Convert.ToString(gvEmpleados.DataKeys[row.RowIndex].Values["segundoApellido"]);
                 txtIdentificacionE.Text = Convert.ToString(gvEmpleados.DataKeys[row.RowIndex].Values["identificacion"]);
                 txtSalarioEd.Text = Convert.ToString(gvEmpleados.DataKeys[row.RowIndex].Values["salarioBruto"]);
+                lblMensaje.Text = "";  
 
             }
         }
@@ -82,6 +83,7 @@ namespace Proyecto.Paginas
                 };
                 empleadoDAO.ModificarEmpleado(empleado, idDepartamento, idJornada, idPuesto);
                 CargarEmpleados();
+                lblMensaje.Text = "Empleado modificado correctamente.";
             }
             catch (Exception ex)
             {
@@ -106,6 +108,7 @@ namespace Proyecto.Paginas
                 };
                 empleadoDAO.EliminarEmpleado(empleado);
                 CargarEmpleados();
+                lblMensaje.Text = "Empleado eliminado correctamente.";
             }
             catch (Exception ex)
             {
@@ -150,6 +153,7 @@ namespace Proyecto.Paginas
             {
                 empleadoDAO.CrearEmpleado(empleado, idDepartamento, idJornada, idPuesto);
                 CargarEmpleados();
+                lblMensaje.Text = "Empleado creado correctamente.";
             }
             catch (Exception ex)
             {
